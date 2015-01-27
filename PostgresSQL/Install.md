@@ -1,3 +1,14 @@
+#Connecting to Azure Linux VM with Putty
+###Download 
+http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
+###Chocolatey
+
+	choco inst putty
+
+###Use
+- Add host name under Session
+- Load private key to connect under Connection->SSH->Auth
+
 #Basic Ubuntu
 ##Creating scripts
 - http://linuxcommand.org/wss0010.php
