@@ -3,4 +3,4 @@ echo "Installing PostgresSQL + packages with apt-get"
 sudo apt-get install postgresql postgresql-contrib
 
 echo "Creating user with permissions to add new user (-a) and create databases (-d)"
-sudo -u postgres createuser nissenjonas -a -d #Nb! Requires the user be nissenjonas
+sudo -u postgres createuser nissenjonas -a -d #Nb! Requires the user to be nissenjonas
