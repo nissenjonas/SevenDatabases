@@ -1,0 +1,9 @@
+echo "Creating database book"
+createdb book
+
+echo "Add extensions book"
+psql book -c "CREATE EXTENSION tablefunc"
+psql book -c "CREATE EXTENSION fuzzystrmatch"
+psql book -c "CREATE EXTENSION pg_trgm"
+psql book -c "CREATE EXTENSION cube"
+psql book -c "CREATE EXTENSION dict_xsyn"
