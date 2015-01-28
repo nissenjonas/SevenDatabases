@@ -1,7 +1,6 @@
 echo "Creating database book"
 createdb book
-
-echo "Add extensions book"
+echo "Add extensions for book db"
 psql book -c "CREATE EXTENSION tablefunc"
 psql book -c "CREATE EXTENSION fuzzystrmatch"
 psql book -c "CREATE EXTENSION pg_trgm"
