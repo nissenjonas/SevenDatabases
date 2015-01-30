@@ -6,3 +6,10 @@ psql book -c "CREATE EXTENSION fuzzystrmatch"
 psql book -c "CREATE EXTENSION pg_trgm"
 psql book -c "CREATE EXTENSION cube"
 psql book -c "CREATE EXTENSION dict_xsyn"
+
+echo "Create tables"
+psql book
+Create Table countries (
+	country_code char(2) Primary Key,
+	country_name text UNIQUE
+);

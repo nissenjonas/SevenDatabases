@@ -4,7 +4,7 @@
 	//e.g.
 	psql book
 
-###pqsl commands
+###psql commands
 	//Lists all SQL commands
 	\h
 
