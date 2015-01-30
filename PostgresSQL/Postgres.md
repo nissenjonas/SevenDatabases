@@ -1,5 +1,5 @@
 #psql 
-- PostgreSQL interactive terminal
+PostgreSQL interactive terminal
 
 ###Connect to database with psql shell
 	psql [database]
