@@ -6,8 +6,43 @@ psql book -c "CREATE EXTENSION fuzzystrmatch"
 psql book -c "CREATE EXTENSION pg_trgm"
 psql book -c "CREATE EXTENSION cube"
 psql book -c "CREATE EXTENSION dict_xsyn"
-echo "Create tables"
+echo "Creating tables.."
+echo "Creating countries table"
 psql book -c "Create Table countries(
 	country_code char(2) Primary Key,
 	country_name text UNIQUE
 );"
+echo "Creating cities table"
+psql book -c "Create Table cities(
+	name text not null,
+	postal_code varchar(9) CHECK (postal_code <> ''),
+	country_code char(2) REFERENCES countries,
+	Primary Key (country_code, postal_code)
+	);"
+echo "Creating vanues table"
+psql book -c "Create Table venues (
+	venue_id SERIAL PRIMARY KEY,
+	name varchar(255),
+	street_address text,
+	type char(7) CHECK (type in
+		('public', 'private')) DEFAULT 'public',
+	postal_code varchar(9),
+	country_code char(2),
+	FOREIGN KEY (country_code, postal_code)
+		REFERENCES cities (country_code, postal_code)
+		MATCH FULL
+	);"
+echo "Creating events table"
+psql book -c "Create table events (
+	event_id SERIAL PRIMARY KEY,
+	title varchar(100),
+	starts timestamp,
+	ends timestamp,
+	venue_id integer REFERENCES venues
+	);"
+echo "Adding indeces"
+echo "Adding event dates indices"
+psql book -c "CREATE INDEX events_starts
+	ON events USING btree (starts);"
+psql book -c "CREATE INDEX events_ends
+	ON events USING btree(ends);"
