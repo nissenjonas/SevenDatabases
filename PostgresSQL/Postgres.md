@@ -1,7 +1,8 @@
 #PostgreSQL
 ##Links
 - [PostgreSQL FAQ](https://wiki.postgresql.org/wiki/FAQ)
-##psql - PostgreSQL interactive terminal
+##psql 
+PostgreSQL interactive terminal
 
 ###Connect to database with psql shell
 	psql [database]
