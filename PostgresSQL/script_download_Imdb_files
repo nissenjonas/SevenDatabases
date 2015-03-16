@@ -1,0 +1,19 @@
+# Ensure 7zip is installed
+sudo apt-get install p7zip
+
+# show location of installation
+whereis 7zr
+
+#
+#TODO: add files to git ignore!!!!!
+#
+#
+
+# download files
+if [ ! -e ./movies.list.gz ]
+then wget ftp://ftp.fu-berlin.de/pub/misc/movies/database/movies.list.gz
+else echo "movies files already exit"
+fi
+
+# extract file
+7za e ./movies.list.gz

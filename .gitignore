@@ -1,0 +1,5 @@
+# Ignore file for SevenDatabases repo
+
+# Imdb datafiles
+*.list
+*.list.gz
