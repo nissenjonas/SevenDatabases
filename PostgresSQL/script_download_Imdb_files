@@ -1,13 +1,8 @@
 # Ensure 7zip is installed
-sudo apt-get install p7zip
+sudo apt-get install p7zip-full
 
 # show location of installation
 whereis 7zr
-
-#
-#TODO: add files to git ignore!!!!!
-#
-#
 
 # download files
 if [ ! -e ./movies.list.gz ]
