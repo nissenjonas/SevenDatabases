@@ -3,3 +3,6 @@
 # Imdb datafiles
 *.list
 *.list.gz
+
+#Ignore riak source and build
+/Riak/riak/

@@ -1,0 +1,24 @@
+#!/bin/bash
+echo "Installing Erlang"
+echo "Adding repo entry"
+wget http://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb
+sudo dpkg -i erlang-solutions_1.0_all.deb
+
+echo "Erlang Solution public key"
+wget http://packages.erlang-solutions.com/ubuntu/erlang_solutions.asc
+sudo apt-key add erlang_solutions.asc
+
+echo "installing..."
+sudo apt-get update
+sudo apt-get install erlang 
+
+echo "Getting Make"
+sudo apt-get install make
+
+echo "Getting Riak source"
+git clone https://github.com/basho/riak.git
+
+echo "building Riak"
+cd riak
+git checkout 1.0.2-release 
+make rel
