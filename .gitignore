@@ -4,5 +4,8 @@
 *.list
 *.list.gz
 
+# Kerl script will be downloaded
+/Riak/kerl
+
 #Ignore riak source and build
 /Riak/riak/

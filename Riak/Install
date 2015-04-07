@@ -3,11 +3,14 @@
 echo "Installing prerequisites"
 sudo apt-get install curl build-essential libncurses5-dev openssl libssl-dev fop xsltproc make
 
-echo "Use curl to get kerl"
-curl -O https://raw.github.com/spawngrid/kerl/master/kerl
+if[ ! -e ./kerl ]
+then 
+	echo "Use curl to get kerl"
+	curl -O https://raw.githubusercontent.com/spawngrid/kerl/master/kerl
+	chmod a+x kerl
+fi
 
 echo "Use kerl to get and build erland"
-chmod a+x kerl
 ./kerl build R14B03 r14b03
 
 sudo apt-get install build-essential libc6-dev-i386
