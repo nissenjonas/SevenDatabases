@@ -1,19 +1,16 @@
 #!/bin/bash
-echo "Installing Erlang"
-echo "Adding repo entry"
-wget http://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb
-sudo dpkg -i erlang-solutions_1.0_all.deb
 
-echo "Erlang Solution public key"
-wget http://packages.erlang-solutions.com/ubuntu/erlang_solutions.asc
-sudo apt-key add erlang_solutions.asc
+echo "Installing prerequisites"
+sudo apt-get install curl build-essential libncurses5-dev openssl libssl-dev fop xsltproc make
 
-echo "installing..."
-sudo apt-get update
-sudo apt-get install erlang 
+echo "Use curl to get kerl"
+curl -O https://raw.github.com/spawngrid/kerl/master/kerl
 
-echo "Getting Make"
-sudo apt-get install make
+echo "Use kerl to get and build erland"
+chmod a+x kerl
+./kerl build R14B03 r14b03
+
+sudo apt-get install build-essential libc6-dev-i386
 
 echo "Getting Riak source"
 git clone https://github.com/basho/riak.git
@@ -21,4 +18,5 @@ git clone https://github.com/basho/riak.git
 echo "building Riak"
 cd riak
 git checkout 1.0.2-release 
-make rel
+make rel #/all?
+make devrel
