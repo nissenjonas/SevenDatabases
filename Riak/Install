@@ -10,10 +10,14 @@ then
 	chmod a+x kerl
 fi
 
-echo "Use kerl to get and build erland"
+echo "Use kerl to get and build erland, using named a named build"
 ./kerl build R14B03 r14b03
 
-sudo apt-get install build-essential libc6-dev-i386
+sudo ./kerl install r14b03 erlang/r14b03
+
+./erlang/r14b03/activate
+
+#sudo apt-get install build-essential libc6-dev-i386
 
 echo "Getting Riak source"
 git clone https://github.com/basho/riak.git
@@ -21,5 +25,5 @@ git clone https://github.com/basho/riak.git
 echo "building Riak"
 cd riak
 git checkout 1.0.2-release 
-make rel #/all?
-make devrel
+make all
+make devrel #compile examlpes
