@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #Install PostgresSQL
 echo "Installing PostgresSQL + packages with apt-get"
 sudo apt-get install postgresql postgresql-contrib
